@@ -13,6 +13,6 @@ def solution(numbers):
     numbers.sort(reverse= True, key= lambda x : compare(x)) # 만들어놓은 함수에 따라 내림차순으로 정렬
     answer = ''.join(numbers)          # 정렬된 리스트의 원소들을 순서대로 문자열로 저장
     
-    if answer[0] == '0':               # [0,0,0,0] 같은 케이스의 경우 "0000"이 아닌 "0"으로 출력 
+    if answer[0] == '0':               # [0,0,0,0] 같이 모든 원소가 0인 케이스는 "0"으로 출력 
         return '0'
     return answer
