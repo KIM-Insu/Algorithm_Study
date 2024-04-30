@@ -14,20 +14,18 @@ def solution(prices):
 # def solution(prices):
 #     stack = []
 #     result = [0] * len(prices)
-#     days = 1
-#     repeat = 1
+
 #     for i in range(len(prices)):
-#         if stack and stack[-1] > prices[i]:
-#             while len(stack) > 0:
+#         days = 1
+#         repeat = 1
+#         if stack:
+#             while stack and stack[-1] > prices[i]:
 #                 stack.pop()
 #                 result[i-repeat] = days
 #                 repeat += 1
 #                 days += 1
-#             repeat = 1
-#             days = 1
-#             stack.append(prices[i])
-#         else:
-#             stack.append(prices[i])
+
+#         stack.append(prices[i])
             
 #     for j in range(len(result)-1):
 #         if result[j] == 0:
