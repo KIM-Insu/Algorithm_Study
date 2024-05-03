@@ -5,7 +5,7 @@ def solution(bridge_length, weight, truck_weights):
     time = 0
     while truck_weights:
         time += 1                                                 # 현재 시점을 저장하는 time 변수를 1초씩 증가시키면서
-        if deque_time and time - deque_time[0] == bridge_length:  # 현재 시점 - 다리에 처음 진입한 시점 = bridge_length와 같아지면, 즉 맨 앞의 트럭이 다리를 건넜으면
+        if deque_time and time - deque_time[0] == bridge_length:  # 현재 시점 - 다리에 처음 진입한 시점 = bridge_length면, 즉 맨 앞의 트럭이 완전히 다리를 건넜으면
             deque_time.popleft()                                   
             deque_truck.popleft()                                 # 두 덱에서 모두 pop
         
