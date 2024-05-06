@@ -1,5 +1,5 @@
 def solution(priorities, location):
-    deque = [[val, idx] for idx, val in enumerate(priorities)]
+    deque = [(val, idx) for idx, val in enumerate(priorities)]
     
     process_order = 0
     while deque:
