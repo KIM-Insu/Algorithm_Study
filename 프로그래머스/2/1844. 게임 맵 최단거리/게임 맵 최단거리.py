@@ -6,10 +6,6 @@ def solution(maps):
     dx = [-1, 1, 0, 0]
     dy = [0, 0, -1, 1]
     
-    graph = []
-    for i in range(n):
-        graph.append(maps[i])
-    
     queue = deque()
     queue.append((0,0))
     
@@ -22,10 +18,10 @@ def solution(maps):
             if nx <= -1 or nx >= n or ny <= -1 or ny >= m:
                 continue
             
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = graph[x][y] + 1
+            if maps[nx][ny] == 1:
+                maps[nx][ny] = maps[x][y] + 1
                 queue.append((nx, ny))
     
-    if graph[n-1][m-1] > 1:
-        return graph[n-1][m-1]
+    if maps[n-1][m-1] > 1:
+        return maps[n-1][m-1]
     else: return -1
