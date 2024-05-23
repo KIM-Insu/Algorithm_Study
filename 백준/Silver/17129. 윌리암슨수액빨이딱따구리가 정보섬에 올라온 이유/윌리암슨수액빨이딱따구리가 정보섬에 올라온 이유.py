@@ -8,24 +8,26 @@ graph = [list(map(int, list(input()))) for _ in range(n)]
 
 queue = deque()
 
+def bfs(x,y):
+    queue.append((x, y, 0))           
+    while queue:
+        x, y, d = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            
+            if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] != 1:
+                if graph[nx][ny] in [3,4,5]:
+                    print('TAK')
+                    print(d + 1)
+                    exit()
+
+                else:
+                    queue.append((nx, ny, d + 1))
+                    graph[nx][ny] = 1
+    print('NIE')
+
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 2:
-            queue.append((i, j, 0))
-            graph[i][j] = 1
-           
-while queue:
-    x, y, d = queue.popleft()
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-        
-        if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] != 1:
-            if graph[nx][ny] in [3,4,5]:
-                print('TAK')
-                print(d + 1)
-                exit()
-
-            queue.append((nx, ny, d + 1))
-            graph[nx][ny] = 1
-print('NIE')
+            bfs(i,j) 
